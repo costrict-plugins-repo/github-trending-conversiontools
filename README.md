@@ -1,0 +1,118 @@
+# `conversiontools/agent-skills`
+
+**[Conversion Tools](https://conversiontools.io) agent skills** - convert 140+ file formats directly from AI agents, build a custom converter from a plain-language description when none fits, or pull structured data out of documents with [Parse](https://parse.conversiontools.io).
+
+Two surfaces, same backend: the **`ctio` CLI** for terminal-first agents, and the hosted **MCP server** for zero-install / web-based agents. The skill teaches your agent to pick the right one.
+
+One repo, every agent. Full per-agent setup is at <https://conversiontools.io/docs/agents>.
+
+## Installation
+
+### Claude Code
+
+```bash
+claude plugin marketplace add conversiontools/agent-skills
+claude plugin install conversiontools@conversiontools-skills
+```
+
+Restart Claude Code after installation. The MCP server connects automatically.
+
+### Cursor
+
+```bash
+/add-plugin conversiontools
+```
+
+Or add the repo as a plugin source, then install `conversiontools` from the plugins browser.
+
+### OpenAI Codex
+
+```bash
+codex plugin marketplace add conversiontools/agent-skills
+```
+
+Start Codex, open the plugins browser with `/plugins`, and install the `conversiontools` plugin.
+
+### Grok Build
+
+Once listed in the Grok marketplace, run `/marketplace` inside Grok Build and install `conversiontools`. In the meantime, add the MCP server with `grok mcp add conversiontools --url "https://mcp.conversiontools.io/mcp?toolsets=all"`.
+
+### Gemini CLI
+
+```bash
+gemini extensions install https://github.com/conversiontools/agent-skills
+```
+
+Update later with `gemini extensions update conversiontools`. (The standalone [conversiontools/gemini-extension](https://github.com/conversiontools/gemini-extension) repo also works and stays current.)
+
+### ctio CLI (best for shell-driven workflows)
+
+Single-binary CLI, no Node/Bun runtime required. Pipes nicely with `jq`, handles arbitrarily large files via streaming.
+
+**Windows (scoop):**
+
+```bash
+scoop bucket add conversiontools https://github.com/conversiontools/scoop-bucket
+scoop install ctio
+```
+
+**macOS / Linux (Homebrew):**
+
+```bash
+brew install conversiontools/tap/ctio
+```
+
+Or download a binary from <https://github.com/conversiontools/ctio/releases> - commands for each platform are in the [ctio docs](https://conversiontools.io/docs/ctio).
+
+### Any MCP client
+
+Connect to the hosted MCP server:
+
+```
+https://mcp.conversiontools.io/mcp
+```
+
+That URL offers the conversion tools. Add `?toolsets=all` for custom converters (AI Studio) and document data extraction (Parse), which this plugin turns on for you.
+
+---
+
+| Skill | Description |
+|-------|-------------|
+| [convert](https://github.com/conversiontools/agent-skills/tree/main/skills/convert) | Convert files between 140+ formats using Conversion Tools. Two surfaces - the `ctio` CLI (preferred when shell access is available) and the hosted MCP server (zero-install). Supports documents, data formats (incl. Parquet), images (incl. JXL), audio, video, e-books, OCR, AI extraction, text-to-speech (TTS), speech-to-text (STT), subtitles (SRT, VTT, ASS), and website screenshots. Plus build a custom converter from a plain-language description (AI Studio) when no standard one fits. |
+| [parse-integration](https://github.com/conversiontools/agent-skills/tree/main/skills/parse-integration) | Extract named fields from documents (invoices, receipts, purchase orders, bank statements, forms, scans) as structured JSON with Parse by Conversion Tools, and build a production integration against its API - API key, schema design, submit, poll until terminal, failure handling, webhooks instead of polling, and CSV/XLSX export. Includes copy-pasteable Python and Node.js clients. |
+
+## Supported Conversions
+
+- **Documents**: Word, PowerPoint, Excel, Markdown, ODS to/from PDF, HTML, Text, LaTeX
+- **Data**: JSON, CSV, XML, YAML, Parquet, JSONL, BSON, Excel - with validators and formatters
+- **Images**: PNG, JPG, WebP, AVIF, HEIC, JXL (JPEG XL), SVG, BMP, TIFF, GIF
+- **PDF**: Extract to Word, Excel, CSV, Text, HTML, Images (JPG, PNG, SVG, TIFF), EPUB
+- **Audio**: MP3, WAV, FLAC - plus AI text-to-speech and speech-to-text
+- **Video**: MP4, MOV, MKV, AVI - plus audio extraction
+- **E-books**: EPUB, MOBI, AZW, AZW3, FB2, FBZ, PDF
+- **OCR**: Extract text from images and scanned PDFs - output as Text or searchable PDF
+- **AI-powered**: Smart extraction from complex documents, subtitle translation, TTS, STT
+- **Subtitles**: SRT, VTT, ASS - bidirectional conversions
+- **Web**: Website screenshots to PDF, JPG, PNG
+- **Custom (AI Studio)**: describe a transformation in plain language and have a reusable converter built, run, and returned - for when no standard converter fits
+
+## Authentication
+
+For the MCP server, you'll be prompted to authenticate via OAuth in your browser on first use. For the `ctio` CLI, run `ctio auth login` once and paste an API token from [conversiontools.io/profile](https://conversiontools.io/profile). Free accounts get 100 conversions per month (10 per day). Paid plans available at [conversiontools.io/pricing](https://conversiontools.io/pricing).
+
+## Links
+
+- [All agent integrations](https://conversiontools.io/docs/agents)
+- [ctio CLI docs](https://conversiontools.io/docs/ctio)
+- [MCP server docs](https://conversiontools.io/docs/mcp)
+- [Parse docs (document data extraction)](https://parse.conversiontools.io/docs)
+- [Pricing](https://conversiontools.io/pricing)
+- [Support](https://conversiontools.io/contact)
+
+## Privacy
+
+The plugin sends the files and documents you ask it to process to Conversion Tools (conversiontools.io) over HTTPS, under your own account. What is stored and for how long is in the [Privacy Policy](https://conversiontools.io/privacy-policy).
+
+## License
+
+MIT
