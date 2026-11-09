@@ -1,0 +1,19 @@
+{
+  "name": "conversiontools-skills",
+  "owner": {
+    "name": "Conversion Tools",
+    "url": "https://conversiontools.io"
+  },
+  "metadata": {
+    "description": "The Conversion Tools plugin: convert files, extract document data and build custom converters from your AI agent."
+  },
+  "plugins": [
+    {
+      "name": "conversiontools",
+      "source": "./",
+      "description": "Convert files between 140+ formats, pull data out of documents, and build custom converters, right inside Claude.",
+      "version": "1.13.0",
+      "category": "integrations"
+    }
+  ]
+}

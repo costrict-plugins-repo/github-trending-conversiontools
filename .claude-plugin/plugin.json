@@ -1,0 +1,26 @@
+{
+  "name": "conversiontools",
+  "version": "1.13.0",
+  "description": "Convert files between 140+ formats, pull data out of documents, and build custom converters, right inside Claude.",
+  "author": {
+    "name": "Conversion Tools",
+    "url": "https://conversiontools.io"
+  },
+  "repository": "https://github.com/conversiontools/agent-skills",
+  "homepage": "https://conversiontools.io/docs/agents",
+  "privacyPolicyUrl": "https://conversiontools.io/privacy-policy",
+  "license": "MIT",
+  "keywords": [
+    "file-conversion",
+    "documents",
+    "pdf",
+    "images",
+    "data-formats",
+    "ocr",
+    "ai-extraction",
+    "audio",
+    "video",
+    "subtitles"
+  ],
+  "skills": "./skills/"
+}
